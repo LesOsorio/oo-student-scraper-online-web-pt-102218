@@ -18,6 +18,7 @@ class Scraper
     location_array = []
     locations.each do |item|
       location_array << item.text
+<<<<<<< HEAD
       #binding.pry
     end
     location_array
@@ -28,19 +29,41 @@ class Scraper
       webpage_array << item['href']
     end
     webpage_array
+=======
+    end
+    locations_array
+
+    webpages = list.css(".student-card a[herf]")
+    webpages_array = []
+    webpages.each do |item|
+      webpages_array << item['herf']
+    end
+    webpages_array
+>>>>>>> 4e7ad4b9f99bcb8b63520e87182e6ecb68406139
 
     master_array = []
     hash = {}
     x = 0
     names_array.each do |name|
+<<<<<<< HEAD
       master_array << {:name => name, :location => location_array[x], :profile_url => webpage_array[x]}
       x = x + 1
     end
     master_array
+=======
+      master_array << {:name => name, :locations => location_array[x], :profile_url => webpages_array[x]}
+      x = x + 1
+    end
+    master_array
+  end 
+
+
+>>>>>>> 4e7ad4b9f99bcb8b63520e87182e6ecb68406139
   end
 
 
   def self.scrape_profile_page(profile_url)
+<<<<<<< HEAD
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
 
@@ -100,3 +123,9 @@ class Scraper
 
     end
   end
+=======
+
+  end
+
+end
+>>>>>>> 4e7ad4b9f99bcb8b63520e87182e6ecb68406139
